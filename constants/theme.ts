@@ -2,7 +2,7 @@
 import { Dimensions } from 'react-native'
 const { height, width } = Dimensions.get('window');
 
-const COLORS = {
+const COLORS = { 
   primary: "#2A4D50",
   secondary: "#DDF0FF",
   tertiary: "#FF7754",
@@ -35,7 +35,7 @@ const SHADOWS = {
   small: {
     shadowColor: "#000",
     shadowOffset: {
-      width: 0,
+      width: '0',
       height: 2,
     },
     shadowOpacity: 0.25,

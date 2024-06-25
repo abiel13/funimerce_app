@@ -1,37 +1,60 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { StyleSheet, Text, View } from "react-native";
+import React from "react";
+import { Tabs } from "expo-router";
+import TabbarIcon from "@/components/TabbarIcon";
 
-import { TabBarIcon } from '@/components/navigation/TabBarIcon';
-import { Colors } from '@/constants/Colors';
-import { useColorScheme } from '@/hooks/useColorScheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
+const TabLayout = () => {
   return (
     <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-      }}>
+    
+    screenOptions={{
+      tabBarActiveTintColor:'#2A4D50',
+      tabBarInactiveTintColor:'#83829A',
+      tabBarStyle:{
+        backgroundColor:"#0b0b0c"
+      }
+    }}
+    >
       <Tabs.Screen
-        name="index"
+        name="home"
         options={{
-          title: 'Home',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'home' : 'home-outline'} color={color} />
+          headerShown: false,
+          tabBarIcon: ({ focused, color }) => (
+            <TabbarIcon
+              color={color}
+              name={focused ? "home" : "home-outline"}
+            />
           ),
         }}
       />
       <Tabs.Screen
-        name="explore"
+        name="profile"
         options={{
-          title: 'Explore',
-          tabBarIcon: ({ color, focused }) => (
-            <TabBarIcon name={focused ? 'code-slash' : 'code-slash-outline'} color={color} />
+          headerShown: false,
+          tabBarIcon: ({ focused, color }) => (
+            <TabbarIcon
+              color={color}
+              name={'search-sharp'}
+            />
+          ),
+        }}
+      />
+      <Tabs.Screen
+        name="search"
+        options={{
+          headerShown: false,
+          tabBarIcon: ({ focused, color }) => (
+            <TabbarIcon
+              color={color}
+              name={focused ? "person" : "person-outline"}
+            />
           ),
         }}
       />
     </Tabs>
   );
-}
+};
+
+export default TabLayout;
+
+const styles = StyleSheet.create({});
